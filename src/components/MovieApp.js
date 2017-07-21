@@ -22,7 +22,7 @@ class MovieApp extends Component {
            
      <div className="container">
         <h1>Posts</h1>
-        <section className="movies">
+        <section className="movies col-md-12">
           
          { this.props.movieList.map(singleMovie => (
 

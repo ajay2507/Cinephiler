@@ -11,17 +11,14 @@ class MovieCard extends Component{
 
   	return (
          
-     <div className="movie">
-      <img src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path } className="poster" />
-      <div className="title">{movie.title}</div>
-      <div className="info">
-        <span className="length">117 min</span>
-        <span className="year">{movie.release_date}</span>
-      </div>
-      <div className="desc">
-        {movie.overview}
-      </div>
-    </div>
+    
+  <div className="card col-md-3">
+  <img src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path } alt="Avatar"  />
+  <div className="container">
+    <h4><b>{movie.title}</b></h4> 
+    <p>{movie.overview}</p> 
+  </div>
+</div>
     
 
   )
