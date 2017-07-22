@@ -19,10 +19,10 @@ class MovieApp extends Component {
     console.log(this.props);
     //const { movies, loading, error } = this.props.movieList;
     return (
-           
+      
      <div className="container">
         <h1>Posts</h1>
-        <section className="movies col-md-12">
+        <section className="col-md-12">
           
          { this.props.movieList.map(singleMovie => (
 
