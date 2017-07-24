@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import render from 'react-dom';
 import { connect } from 'react-redux';
-import { getMovies, getMoviesSuccess, getMoviesFailure } from '../actions/movieAction';
+import { getMovies, getMoviesSuccess, getMoviesFailure } from '../actions/MovieAction';
 
 import MovieCard from './MovieCard';
 import './Movie.css';
