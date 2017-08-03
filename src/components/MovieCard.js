@@ -10,7 +10,7 @@ class MovieCard extends Component{
   
   constructor(props) {
      super(props);
-     this.getMovieDetails = this.getMovieDetails.bind(this);
+     //this.getMovieDetails = this.getMovieDetails.bind(this);
    } 
 
    getMovieDetails(id){
@@ -19,8 +19,6 @@ class MovieCard extends Component{
       this.props.getIndividualMovies(id);
 
    }
-
-
 
   render(){
 
@@ -31,8 +29,8 @@ class MovieCard extends Component{
     <div className="card col-md-3">
      <img className="poster" src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path } alt="Avatar"  />
      <div className="container">
-     <h4><b>{movie.title}</b></h4> 
-     <button className="btn btn-info" onClick={this.getMovieDetails(movie.id)}>View Details</button> 
+     <h2><b>{movie.title}</b></h2> 
+     <button className="button" onClick={this.getMovieDetails.bind(this,movie.id)}>View Details</button> 
     </div>
    </div>
     

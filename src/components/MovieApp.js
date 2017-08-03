@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import render from 'react-dom';
 import { connect } from 'react-redux';
-import { getMovies, getMoviesSuccess, getMoviesFailure } from '../actions/MovieAction';
+
+import { getMovies, getMoviesSuccess, getMoviesFailure } from '../actions/movieAction';
+import { getTVShows, getTVShowSuccess, getTVShowsFailure } from '../actions/TVShowsAction';
 
 import MovieCard from './MovieCard';
 import './Movie.css';
@@ -9,20 +11,46 @@ import './Movie.css';
 
 class MovieApp extends Component {
 
+    
+    constructor(props) {
+      super(props);
+      this.state = {
+        enableButton : true
+      }
+      this.getMovieType = this.getMovieType.bind(this); 
+    }
+    
+    getMovieType(type){
+      this.setState({
+        enableButton : !this.state.enableButton
+      })
+
+      if(this.state.enableButton){
+        this.props.getMovies();
+      }else{
+        this.props.getTVShowsDetails();
+      }
+    }
+
 
     componentWillMount() {
         this.props.getMovies();
     }
 
     render() {
-    console.log("render");
-    console.log(this.props);
+    
     //const { movies, loading, error } = this.props.movieList;
     return (
-      
+
+     <div>
+     <div>
+          <button className="button" onClick={this.getMovieType}>Upcoming</button>
+          <button className="button" onClick={this.getMovieType}>Top Rated</button>
+          {this.state.enableButton && <button className="button" onClick={this.getMovieType}>Serials</button> }
+          {!this.state.enableButton && <button className="button" onClick={this.getMovieType}>Movies</button>} 
+     </div>
      <div className="container">
-        <h1>Posts</h1>
-        <section className="col-md-12">
+       <section className="col-md-12">
           
          { this.props.movieList.map(singleMovie => (
 
@@ -30,7 +58,7 @@ class MovieApp extends Component {
          )) 
        }
         </section>
-      </div>
+      </div></div>
             
 
         )
@@ -58,6 +86,13 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(getMovies()).then((response) => {
            console.log(response);
             !response.error ? dispatch(getMoviesSuccess(response.value)) : dispatch(getMoviesFailure(response.payload));
+          });
+    },
+
+    getTVShowsDetails:() => {
+       dispatch(getTVShows()).then((response) => {
+           console.log(response);
+            !response.error ? dispatch(getTVShowSuccess(response.value)) : dispatch(getTVShowsFailure(response.payload));
           });
     }
   }
