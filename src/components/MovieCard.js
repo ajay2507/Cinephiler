@@ -14,6 +14,9 @@ class MovieCard extends Component{
    } 
 
    getMovieDetails(id){
+      alert(id);
+
+      this.props.getIndividualMovies(id);
 
    }
 
@@ -24,15 +27,14 @@ class MovieCard extends Component{
     const movie = this.props.movie;
 
   	return (
-         
-    
-  <div className="card col-md-3">
-  <img className="poster" src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path } alt="Avatar"  />
-  <div className="container">
-    <h4><b>{movie.title}</b></h4> 
-    <button className="btn btn-info" onClick={this.getMovieDetails}>View Details</button> 
-  </div>
-</div>
+      
+    <div className="card col-md-3">
+     <img className="poster" src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path } alt="Avatar"  />
+     <div className="container">
+     <h4><b>{movie.title}</b></h4> 
+     <button className="btn btn-info" onClick={this.getMovieDetails(movie.id)}>View Details</button> 
+    </div>
+   </div>
     
 
   )

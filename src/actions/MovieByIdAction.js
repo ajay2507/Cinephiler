@@ -11,7 +11,7 @@ export function getMovieById(id) {
     console.log("inside get movies action");
     const request = axios({
         method: 'get',
-        url: 'https://api.themoviedb.org/3/movie/popular?api_key=59240ac36bf8f025628e925b3d690f9f&language=en-US&page=1',
+        url: 'https://api.themoviedb.org/3/movie/'+id+'?api_key=59240ac36bf8f025628e925b3d690f9f&language=en-US',
         headers: []
     });
     return {

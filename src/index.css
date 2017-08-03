@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 body{
  
    background:url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/footer_lodyas.png);
@@ -6,6 +7,7 @@ body{
   -o-animation:100s scroll infinite linear;
   -ms-animation:100s scroll infinite linear;
   animation:100s scroll infinite linear;
+  font-family: Raleway, Arial;
   top:0;
   left:0;
   width:100%;
