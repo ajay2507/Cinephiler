@@ -20,21 +20,27 @@ class MovieApp extends Component {
       this.getMovieType = this.getMovieType.bind(this); 
     }
     
-    getMovieType(type){
+    // get Movies based on Movies and TV shows
+    getMovieType(){
       this.setState({
         enableButton : !this.state.enableButton
       })
 
       if(this.state.enableButton){
-        this.props.getMovies();
+        this.props.getAllMovies();
       }else{
         this.props.getTVShowsDetails();
       }
     }
 
+    getMoviesByCategory(category){
+        this.props.getMovieByCategory(category);
+    }
+
 
     componentWillMount() {
-        this.props.getMovies();
+        
+        this.props.getAllMovies();
     }
 
     render() {
@@ -44,9 +50,9 @@ class MovieApp extends Component {
 
      <div>
      <div>
-          <button className="button" onClick={this.getMovieType}>Upcoming</button>
-          <button className="button" onClick={this.getMovieType}>Top Rated</button>
-          {this.state.enableButton && <button className="button" onClick={this.getMovieType}>Serials</button> }
+          <button className="button red" onClick={this.getMoviesByCategory.bind(this,'upcoming')}>Upcoming</button>
+          <button className="button red" onClick={this.getMoviesByCategory.bind(this,'topRated')}>Top Rated</button>
+          {this.state.enableButton && <button className="button" onClick={this.getMovieType}>TV Shows</button> }
           {!this.state.enableButton && <button className="button" onClick={this.getMovieType}>Movies</button>} 
      </div>
      <div className="container">
@@ -82,7 +88,7 @@ const mapDispatchToProps = (dispatch) => {
    console.log("inside dispatch");
    console.log(dispatch);
   return {
-    getMovies: () => {
+    getAllMovies: () => {
       dispatch(getMovies()).then((response) => {
            console.log(response);
             !response.error ? dispatch(getMoviesSuccess(response.value)) : dispatch(getMoviesFailure(response.payload));
@@ -94,6 +100,13 @@ const mapDispatchToProps = (dispatch) => {
            console.log(response);
             !response.error ? dispatch(getTVShowSuccess(response.value)) : dispatch(getTVShowsFailure(response.payload));
           });
+    }
+
+    getMovieByCategory:() => {
+        dispatch(FilterMoviesByCategory(category)).then((response) => {
+            console.log(response);
+            !response.error ? dispatch(getTVShowSuccess(response.value)) : dispatch(getTVShowsFailure(response.payload)); 
+        })
     }
   }
 }

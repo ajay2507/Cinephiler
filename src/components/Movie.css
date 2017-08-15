@@ -70,3 +70,9 @@ img {
   text-shadow: 0px -2px #669644;
   pointer: cursor;
 }
+
+.red{
+
+  background-color: #c23232;
+  border-bottom: 5px solid #c23232;
+}
