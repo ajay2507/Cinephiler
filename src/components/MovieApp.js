@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { getMovies, getMoviesSuccess, getMoviesFailure } from '../actions/movieAction';
 import { getTVShows, getTVShowSuccess, getTVShowsFailure } from '../actions/TVShowsAction';
+import { filterMoviesByCategory, filterMoviesSuccess, filterMoviesFailure } from '../actions/FilterMovieAction';
 
 import MovieCard from './MovieCard';
 import './Movie.css';
@@ -33,8 +34,8 @@ class MovieApp extends Component {
       }
     }
 
-    getMoviesByCategory(category){
-        this.props.getMovieByCategory(category);
+    getMoviesByCategory(filterType){
+        this.props.getMovieByCategory(filterType);
     }
 
 
@@ -51,7 +52,7 @@ class MovieApp extends Component {
      <div>
      <div>
           <button className="button red" onClick={this.getMoviesByCategory.bind(this,'upcoming')}>Upcoming</button>
-          <button className="button red" onClick={this.getMoviesByCategory.bind(this,'topRated')}>Top Rated</button>
+          <button className="button red" onClick={this.getMoviesByCategory.bind(this,'top_rated')}>Top Rated</button>
           {this.state.enableButton && <button className="button" onClick={this.getMovieType}>TV Shows</button> }
           {!this.state.enableButton && <button className="button" onClick={this.getMovieType}>Movies</button>} 
      </div>
@@ -100,12 +101,12 @@ const mapDispatchToProps = (dispatch) => {
            console.log(response);
             !response.error ? dispatch(getTVShowSuccess(response.value)) : dispatch(getTVShowsFailure(response.payload));
           });
-    }
+    },
 
-    getMovieByCategory:() => {
-        dispatch(FilterMoviesByCategory(category)).then((response) => {
+    getMovieByCategory:(filterType) => {
+        dispatch(filterMoviesByCategory(filterType)).then((response) => {
             console.log(response);
-            !response.error ? dispatch(getTVShowSuccess(response.value)) : dispatch(getTVShowsFailure(response.payload)); 
+            !response.error ? dispatch(filterMoviesSuccess(response.value)) : dispatch(filterMoviesFailure(response.payload)); 
         })
     }
   }

@@ -4,6 +4,7 @@ import render from 'react-dom';
 import { connect } from 'react-redux';
 import { getMovieById, getMovieByIdSuccess, getMovieByIdFailure } from '../actions/MovieByIdAction';
 
+
 import './Movie.css';
 
 class MovieCard extends Component{

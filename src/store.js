@@ -7,4 +7,5 @@ import reducer from './reducers'
 
 const createStoreWithMiddleware  = applyMiddleware(thunkMiddleware,promiseMiddleware(),logger);
 
+/* Store holds the complete state tree of Cinephiler Application */
 export default createStore(reducer, createStoreWithMiddleware );
