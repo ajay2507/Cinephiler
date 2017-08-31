@@ -30,7 +30,7 @@ class MovieCard extends Component{
     <div className="card col-md-3">
      <img className="poster" src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path } alt="Avatar"  />
      <div className="container">
-     <h2><b>{movie.title}</b></h2> 
+     <h4><b>{movie.title}</b></h4> 
      <button className="button" onClick={this.getMovieDetails.bind(this,movie.id)}>View Details</button> 
     </div>
    </div>

@@ -49,7 +49,7 @@ class MovieApp extends Component {
     //const { movies, loading, error } = this.props.movieList;
     return (
 
-     <div>
+     <div className="container">
      <div>
           <button className="button red" onClick={this.getMoviesByCategory.bind(this,'upcoming')}>Upcoming</button>
           <button className="button red" onClick={this.getMoviesByCategory.bind(this,'top_rated')}>Top Rated</button>
