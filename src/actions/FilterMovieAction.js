@@ -17,6 +17,8 @@ export function filterMoviesByCategory(filterType){
 }
 
 
+
+
 export function filterMoviesSuccess(movies) {
   console.log("success");
   console.log(movies);

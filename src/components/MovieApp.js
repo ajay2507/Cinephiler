@@ -7,6 +7,8 @@ import { getTVShows, getTVShowSuccess, getTVShowsFailure } from '../actions/TVSh
 import { filterMoviesByCategory, filterMoviesSuccess, filterMoviesFailure } from '../actions/FilterMovieAction';
 
 import MovieCard from './MovieCard';
+import Pagination from './Pagination';
+
 import './Movie.css';
 
 
@@ -65,7 +67,9 @@ class MovieApp extends Component {
          )) 
        }
         </section>
-      </div></div>
+      </div>
+      <Pagination></Pagination>
+      </div>
             
 
         )

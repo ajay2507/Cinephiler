@@ -82,6 +82,11 @@ img {
   border-bottom: 5px solid #c23232;
 }
 
+.blue{
+  background-color: #00BCD4;
+  border-bottom: 5px solid #00BCD4;
+}
+
 
 /* One column grid of 300px blocks when screen smaller than 600px */
 @media screen and (max-width: 599px) {
