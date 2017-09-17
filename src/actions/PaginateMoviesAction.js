@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { FETCH_NEXT_PREV_MOVIES, FETCH_NEXT_PREV_MOVIES_SUCCESS, FETCH_NEXT_PREV_MOVIES_REJECTED } from '../constants/ActionTypes';
 
 

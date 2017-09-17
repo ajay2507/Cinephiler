@@ -38,6 +38,9 @@ class MovieApp extends Component {
     }
 
     getMoviesByCategory(filterType){
+        this.setState({
+           movieType: filterType
+        })
         this.props.getMovieByCategory(filterType);
     }
 
@@ -64,12 +67,12 @@ class MovieApp extends Component {
           
          { this.props.movieList.map(singleMovie => (
 
-             <MovieCard movie={singleMovie} />
+             <MovieCard id={singleMovie.id} movie={singleMovie} />
          )) 
        }
         </section>
       </div>
-      <Pagination movieType={this.state.movieType} ></Pagination>
+      <Pagination pageNo={this.props.pageNo} movieType={this.state.movieType} ></Pagination>
       </div>
             
 
@@ -82,7 +85,8 @@ const mapStateToProps = (state) => {
   
   if(state.movies.moviesList.movies.length > 0){
   return { 
-    movieList: state.movies.moviesList.movies
+    movieList: state.movies.moviesList.movies,
+    pageNo: state.movies.moviesList.pageNo
   }}else{
      return { 
     movieList: []
