@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_NEXT_MOVIES, FETCH_NEXT_MOVIES_SUCCESS, FETCH_NEXT_MOVIES_REJECTED } from '../constants/ActionTypes';
+import { FETCH_NEXT_PREV_MOVIES, FETCH_NEXT_PREV_MOVIES_SUCCESS, FETCH_NEXT_PREV_MOVIES_REJECTED } from '../constants/ActionTypes';
 
 
 // To get all the movies
@@ -12,8 +12,27 @@ export function fetchNextMovies(filterType,pageNo){
     headers: []
   });
    return {
-    type: FETCH_NEXT_MOVIES,
+    type: FETCH_NEXT_PREV_MOVIES,
     payload: request
   };
 }
+
+export function fetchNextMoviesSuccess(movies) {
+  console.log("success");
+  console.log(movies);
+  return {
+    type: FETCH_NEXT_PREV_MOVIES_SUCCESS,
+    payload: movies
+  };
+}
+
+export function fetchNextMoviesFailure(error) {
+  console.log("Error")
+  console.log(error)
+  return {
+    type: FETCH_NEXT_PREV_MOVIES_REJECTED,
+    payload: error
+  };
+}
+
 

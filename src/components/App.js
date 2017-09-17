@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+  import React, {Component} from 'react';
+  import ReactDOM from 'react-dom';
 
-import { connect } from 'react-redux';
+  import { connect } from 'react-redux';
 
 import MovieApp from './MovieApp';
 import MovieDetails from './MovieDetails';

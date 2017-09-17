@@ -18,7 +18,8 @@ class MovieApp extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        enableButton : true
+        enableButton : true,
+        movieType:'popular'
       }
       this.getMovieType = this.getMovieType.bind(this); 
     }
@@ -68,7 +69,7 @@ class MovieApp extends Component {
        }
         </section>
       </div>
-      <Pagination></Pagination>
+      <Pagination movieType={this.state.movieType} ></Pagination>
       </div>
             
 
